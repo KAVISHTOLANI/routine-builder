@@ -1,0 +1,241 @@
+/* Dayweave specific styles */
+.ring {
+  flex: none;
+}
+.ring-bg {
+  fill: none;
+  stroke: var(--surface-3);
+  stroke-width: 6;
+}
+.ring-fg {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 6;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s var(--ease);
+}
+.ring text {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--text);
+}
+
+/* Checklist */
+.checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+}
+.checklist li {
+  display: grid;
+  grid-template-columns: 3.4rem auto minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 8px 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.checklist li:last-child {
+  border-bottom: 0;
+}
+.cl-time {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.cl-tick {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid var(--rule);
+  background: transparent;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+span.cl-tick {
+  cursor: default;
+  width: 22px;
+  height: 22px;
+  font-size: 0.72rem;
+}
+button.cl-tick:hover {
+  border-color: var(--accent);
+}
+button.cl-tick:active {
+  transform: scale(0.92);
+}
+.is-done .cl-tick {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.cl-body {
+  display: grid;
+  min-width: 0;
+}
+.cl-title {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.is-done .cl-title {
+  text-decoration: line-through;
+  text-decoration-color: color-mix(in srgb, var(--text) 40%, transparent);
+  color: var(--muted);
+}
+.is-next {
+  background: linear-gradient(90deg, transparent, var(--accent-soft) 30%, transparent);
+}
+.checklist.is-compact li {
+  padding: 7px 0;
+  grid-template-columns: 3rem auto minmax(0, 1fr);
+}
+.hero-dw {
+  display: grid;
+  gap: 14px;
+}
+.hero-dw .row-between {
+  gap: 12px;
+}
+.hero-dw-name {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: var(--display-weight);
+}
+.hero-dw .eyebrow {
+  margin: 0;
+}
+
+/* Routine tabs */
+.routine-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 10px;
+}
+.routine-tab {
+  display: grid;
+  gap: 2px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  min-width: 0;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.routine-tab:hover {
+  border-color: var(--accent);
+}
+.routine-tab[aria-selected='true'] {
+  border-color: var(--accent);
+  box-shadow: inset 0 -3px 0 var(--accent);
+}
+.rt-name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Step editor */
+.step-editor {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.step-editor li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 2fr) 90px minmax(0, 1.4fr) auto;
+  gap: 10px;
+  align-items: end;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.step-editor .step-num {
+  padding-bottom: 12px;
+  color: var(--muted);
+}
+.step-actions {
+  display: flex;
+  gap: 4px;
+  padding-bottom: 4px;
+}
+@media (max-width: 720px) {
+  .step-editor li {
+    grid-template-columns: auto minmax(0, 1fr) 80px;
+  }
+  .step-editor .note,
+  .step-actions {
+    grid-column: 2 / -1;
+  }
+}
+
+/* Templates */
+.tpl-steps {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 4px;
+}
+.tpl-steps li span:first-child {
+  margin-right: 8px;
+}
+.tpl-steps li span:last-child {
+  color: var(--muted);
+}
+.template .row-between {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* History dots */
+.dots-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+}
+.dots-name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dots {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid var(--rule);
+}
+.dot.full {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.dot.partial {
+  background: linear-gradient(90deg, var(--accent) 50%, transparent 50%);
+  border-color: var(--accent);
+}
+.legend .dot {
+  width: 11px;
+  height: 11px;
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+@media (max-width: 720px) {
+  .dots-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+}
