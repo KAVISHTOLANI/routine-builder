@@ -2,7 +2,7 @@
 
 A routine planner that turns an ordered list of steps into a timed checklist. It shows the clock time of each step and what to do now, and tracks completion, streaks and minutes over two weeks.
 
-**Live demo:** [https://dayweave.vercel.app/](https://dayweave.vercel.app/) — runs entirely in your browser; demo data is fictional and labelled.
+**Live demo:** [https://routine-builder-gules.vercel.app/](https://routine-builder-gules.vercel.app/) — runs entirely in your browser; demo data is fictional and labelled.
 
 ![Landing with the live checklist preview](docs/landing.png)
 
