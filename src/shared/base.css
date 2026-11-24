@@ -1544,13 +1544,15 @@ fieldset {
   gap: 10px;
 }
 .bars-axis {
+  height: calc(220px + 1.1em);
+  margin-top: -0.55em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   font-family: var(--font-mono);
   font-size: 0.7rem;
+  line-height: 1.1;
   color: var(--muted);
-  padding-bottom: 22px;
   text-align: right;
 }
 .bars {
@@ -1559,9 +1561,11 @@ fieldset {
   align-items: stretch;
   gap: 6px;
   height: 220px;
+  margin-bottom: 22px;
   border-bottom: 1px solid var(--rule);
 }
 .bar-col {
+  position: relative;
   flex: 1;
   min-width: 0;
   display: flex;
@@ -1590,6 +1594,10 @@ fieldset {
   min-height: 2px;
 }
 .bar-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -20px;
   font-size: 0.66rem;
   color: var(--muted);
   text-align: center;
